@@ -8,75 +8,23 @@ import { useEffect, useState } from 'react';
 const Activities = () => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const graduates = [{
-    name: "Database Administration Specialist",
+    name: "Ahmed Mahmoud",
+    specialization: "Oracle Cloud Infrastructure",
+    year: "2024",
+    achievement: "Successfully completed Oracle Cloud certification program and secured senior position at leading technology company. Now working as cloud infrastructure specialist managing enterprise-level solutions.",
+    image: "/lovable-uploads/b9da31b9-fab2-4f64-81a7-230889b31ed7.png"
+  }, {
+    name: "Fatima Al-Zahra",
     specialization: "Database Administration",
+    year: "2024", 
+    achievement: "Graduated with excellence in database management and Oracle technologies. Currently leading database operations team and received recognition for outstanding technical contributions.",
+    image: "/lovable-uploads/ddb9af83-e3ce-4241-8347-f068d48fb0be.png"
+  }, {
+    name: "Mohammed Hassan",
+    specialization: "IT Solutions Architecture",
     year: "2024",
-    achievement: "Successfully completed comprehensive database management program and secured senior position in technology sector",
-    image: "/lovable-uploads/d54677ca-07ec-49a6-91db-2fd70c024de9.png",
-    type: "success-story"
-  }, {
-    name: "IT Infrastructure Expert",
-    specialization: "System Administration",
-    year: "2024",
-    achievement: "Graduated with excellence in IT infrastructure management and currently leading technical operations",
-    image: "/lovable-uploads/ac2ecfff-e3e4-4c9b-b151-39eefffb6b87.png",
-    type: "success-story"
-  }, {
-    name: "Systems Development Professional",
-    specialization: "Software Development",
-    year: "2024",
-    achievement: "Completed advanced programming certification and now contributing to innovative software solutions",
-    image: "/lovable-uploads/e7abfede-a281-4f33-a5f6-7ed746efcdfa.png",
-    type: "success-story"
-  }, {
-    name: "Cybersecurity Analyst",
-    specialization: "Cybersecurity",
-    year: "2024",
-    achievement: "Security expert specializing in threat analysis and protection systems implementation",
-    video: "/lovable-uploads/155a6270-d99d-42d3-8bd5-c52168874a39.png",
-    type: "video-testimonial"
-  }, {
-    name: "Cloud Computing Specialist",
-    specialization: "Cloud Computing",
-    year: "2023",
-    achievement: "Cloud architecture professional working on enterprise-level cloud solutions and migrations",
-    image: "/lovable-uploads/51cc1635-443b-40c0-a48b-1aac60d50cf2.png",
-    type: "success-story"
-  }, {
-    name: "Web Development Expert",
-    specialization: "Web Development",
-    year: "2023",
-    achievement: "Full-stack developer creating innovative web applications and digital solutions",
-    video: "/lovable-uploads/545ff129-4ec1-4c44-9a2f-628e3c015719.png",
-    type: "program-intro"
-  }, {
-    name: "Network Administration Professional",
-    specialization: "Network Administration",
-    year: "2023",
-    achievement: "Network infrastructure specialist managing complex enterprise networking solutions",
-    image: "/lovable-uploads/8132ebd7-af03-45d0-9134-81727eed1e1a.png",
-    type: "classroom-footage"
-  }, {
-    name: "IT Support Manager",
-    specialization: "IT Support",
-    year: "2023",
-    achievement: "Technical support leader providing comprehensive IT solutions and team management",
-    video: "/lovable-uploads/999b04d1-24c3-4842-8d68-6217a3fcfd24.png",
-    type: "employer-testimonial"
-  }, {
-    name: "Technical Training Graduate",
-    specialization: "Multiple Certifications",
-    year: "2024",
-    achievement: "Outstanding graduate with multiple technical certifications and industry recognition",
-    image: "/lovable-uploads/05227d3e-2896-4629-85f5-838f9f978e9f.png",
-    type: "group-graduation"
-  }, {
-    name: "Professional Development Session",
-    specialization: "Continuous Learning",
-    year: "2024",
-    achievement: "Active participation in professional development programs and industry networking events",
-    image: "/lovable-uploads/7aa28c7a-5faf-4ef5-b8b9-b009633b59fb.png",
-    type: "training-session"
+    achievement: "Completed comprehensive IT solutions program and now working as senior solutions architect. Known for delivering innovative technical presentations and leading successful project implementations.",
+    image: "/lovable-uploads/4e0cd540-4f65-4c3d-95d4-236272cfaac3.png"
   }];
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const successVideos = [{
