@@ -1,0 +1,731 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* الوضع النهاري (Light Mode) */
+    --color-background: 0 0% 100%;
+    --color-surface: 220 13% 97%;
+    --color-text-primary: 210 100% 16%;
+    --color-text-secondary: 210 30% 45%;
+    --color-brand-primary: 210 100% 16%;
+    --color-brand-accent: 180 100% 31%;
+    
+    --background: 0 0% 100%;
+    --foreground: 210 100% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 100% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 100% 16%;
+
+    --primary: 210 100% 16%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 100% 31%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 13% 97%;
+    --muted-foreground: 210 30% 45%;
+
+    --accent: 180 100% 31%;
+    --accent-foreground: 210 100% 16%;
+
+    /* RALY Brand Colors - HSL only */
+    --brand-blue: 210 100% 16%; /* #1A2A44 exact */
+    --brand-teal: 180 100% 31%; /* #00A99D exact */
+    
+    /* Navbar Background Colors */
+    --navbar-primary: 188 100% 27%; /* #007B8C - Main teal blue */
+    --navbar-light: 187 100% 30%; /* #008C9E - Lighter variant */
+    --navbar-dark: 189 100% 24%; /* #006A7A - Darker variant */
+    
+    /* Modern Section Backgrounds */
+    --section-clean: 0 0% 100%; /* Pure white */
+    --section-light-gray: 0 0% 98%; /* Very light gray */
+    --section-dark: 210 100% 20%; /* Dark blue background */
+    
+    /* Service Card Enhancement */
+    --card-enhanced: 0 0% 100%;
+    --card-shadow: 0 10px 30px -10px hsla(210, 100%, 20%, 0.1);
+    --card-shadow-hover: 0 20px 40px -10px hsla(210, 100%, 20%, 0.2);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* الوضع الليلي المحسن (Enhanced Dark Mode) */
+    --color-background: 210 100% 6%;
+    --color-surface: 210 100% 12%;
+    --color-text-primary: 220 13% 95%;
+    --color-text-secondary: 220 13% 75%;
+    --color-brand-primary: 220 13% 95%;
+    --color-brand-accent: 180 100% 40%;
+    
+    --background: 210 100% 6%;
+    --foreground: 220 13% 95%;
+
+    --card: 210 100% 12%;
+    --card-foreground: 220 13% 95%;
+
+    --popover: 210 100% 12%;
+    --popover-foreground: 220 13% 95%;
+
+    --primary: 220 13% 95%;
+    --primary-foreground: 210 100% 12%;
+
+    --secondary: 180 100% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 100% 12%;
+    --muted-foreground: 220 13% 75%;
+
+    --accent: 180 100% 40%;
+    --accent-foreground: 220 13% 95%;
+    
+    /* Enhanced night mode gradients */
+    --gradient-night-hero: linear-gradient(135deg, hsl(210, 100%, 8%) 0%, hsl(210, 100%, 15%) 100%);
+    --gradient-night-section: linear-gradient(180deg, hsl(210, 100%, 6%) 0%, hsl(210, 100%, 10%) 100%);
+    
+    /* Glow effects for dark mode */
+    --glow-primary: 0 0 20px hsl(180, 100%, 40%);
+    --glow-secondary: 0 0 30px hsl(210, 100%, 60%);
+    --shadow-3d-dark: 0 20px 40px rgba(0, 169, 157, 0.2);
+    
+    /* Night mode specific card enhancements */
+    --card-glow: 210 100% 15%;
+    --card-border-glow: 180 100% 40%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Global text color rules - Absolute Contrast Law */
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(var(--color-text-primary));
+  }
+  
+  p, span, div {
+    color: hsl(var(--color-text-primary));
+  }
+  
+  /* Text overrides for specific contexts */
+  .text-white, .text-white * {
+    color: #FFFFFF !important;
+  }
+  
+  .text-white\/90, .text-white\/90 * {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .text-white\/80, .text-white\/80 * {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .text-white\/70, .text-white\/70 * {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  /* Enhanced Logo "printed" effect filters with prominence */
+  :root {
+    --logo-filter-transparent: brightness(1.2) contrast(1.2) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+    --logo-filter-light: brightness(0.9) contrast(1.2) saturate(0.95) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+    --logo-filter-dark: brightness(1.25) contrast(1.15) saturate(1.1) drop-shadow(0 2px 6px rgba(255, 255, 255, 0.2));
+    --logo-filter-footer: brightness(1.05) contrast(1.15) saturate(1.0) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.25));
+    --logo-filter-footer-dark: brightness(1.15) contrast(1.1) saturate(1.05) drop-shadow(0 3px 8px rgba(255, 255, 255, 0.15));
+  }
+}
+
+/* RALY Brand Gradients and Effects */
+@layer components {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+  
+  .dark .gradient-hero {
+    background: var(--gradient-night-hero);
+  }
+  
+  /* Dynamic background for dark mode */
+  .dark .bg-muted {
+    background: var(--gradient-night-section);
+  }
+  
+  /* Animated stars background for dark mode */
+  .dark-bg-stars {
+    background: radial-gradient(circle at 20% 80%, rgba(0, 169, 157, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(210, 100, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(220, 13, 91, 0.05) 0%, transparent 50%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .animated-border {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--secondary)), transparent);
+    animation: border-animation 3s infinite;
+  }
+  
+  @keyframes border-animation {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  .typing-cursor::after {
+    content: '|';
+    animation: typing-cursor 1s infinite;
+  }
+  
+  @keyframes typing-cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  /* Arabic font support */
+  .font-arabic {
+    font-family: 'Cairo', 'Arial', sans-serif;
+  }
+  
+  /* Scroll-triggered animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scroll-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .scroll-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .scroll-indicator {
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+
+  /* Floating Navbar Effects - Critical Contrast Fix */
+  .navbar-transparent {
+    background: hsla(var(--navbar-primary), 0.15);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-solid {
+    background: hsl(var(--navbar-primary));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .navbar-solid {
+    background: hsl(var(--navbar-dark));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Navbar link colors - Absolute Contrast */
+  .nav-link-hover {
+    position: relative;
+    transition: color 0.3s ease;
+    color: hsl(var(--brand-blue));
+  }
+  
+  .dark .nav-link-hover {
+    color: #FFFFFF;
+  }
+
+  .nav-link-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(var(--brand-teal));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link-hover:hover::after {
+    width: 100%;
+  }
+
+  .nav-link-hover:hover {
+    color: hsl(var(--brand-teal));
+  }
+
+  .nav-link-active {
+    color: hsl(var(--brand-teal));
+    font-weight: 600;
+    position: relative;
+  }
+
+  .nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: hsl(var(--brand-teal));
+  }
+
+  .cta-button {
+    background: hsl(var(--brand-blue));
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: hsl(var(--brand-teal));
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Scroll Pinning Hero Animation */
+  .hero-pin-container {
+    height: 300vh; /* 3x viewport height for scroll distance */
+    position: relative;
+  }
+
+  .hero-pin-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-bg-1 {
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  .hero-bg-2 {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  .hero-content-phase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  }
+
+  .hero-phase-1 {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-phase-2 {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  /* Typing effect animation */
+  .typing-text {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--secondary));
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3s steps(40, end), blink-caret 1s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--secondary)); }
+  }
+
+  /* Counter animation */
+  .counter-number {
+    font-variant-numeric: tabular-nums;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Course Card 3D Effects - مبتكرة وخرافية */
+  .course-card {
+    position: relative;
+    background: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    border: 1px solid hsl(var(--border));
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    transform-style: preserve-3d;
+  }
+  
+  /* Glowing border effect for night mode */
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      hsl(var(--brand-teal)) 0%, 
+      hsl(var(--secondary)) 25%, 
+      hsl(var(--primary)) 50%, 
+      hsl(var(--brand-teal)) 75%, 
+      hsl(var(--secondary)) 100%
+    );
+    border-radius: 18px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    filter: blur(8px);
+  }
+  
+  .dark .course-card::before {
+    opacity: 0.3;
+  }
+  
+  .dark .course-card:hover::before {
+    opacity: 0.6;
+    filter: blur(12px);
+  }
+  
+  /* 3D hover effects */
+  .course-card:hover {
+    transform: perspective(1000px) rotateY(-8deg) rotateX(5deg) translateY(-12px) translateZ(20px);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 40px 80px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .course-card:hover {
+    box-shadow: 
+      0 20px 40px rgba(0, 169, 157, 0.3),
+      0 40px 80px rgba(0, 169, 157, 0.1);
+  }
+  
+  .course-card:hover .course-title {
+    color: hsl(var(--brand-teal));
+    transform: translateZ(10px);
+  }
+  
+  /* Floating animation */
+  .course-card-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Staggered animation for grid */
+  .staggered-fade-in {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .staggered-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  /* Course image enhancement */
+  .course-image {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+  }
+  
+  .course-card:hover .course-image {
+    transform: scale(1.05) translateZ(5px);
+  }
+  
+  /* Add Tailwind color utilities for brand colors */
+  .text-brand-blue {
+    color: hsl(var(--brand-blue));
+  }
+  
+  .text-brand-teal {
+    color: hsl(var(--brand-teal));
+  }
+  
+  .bg-brand-blue {
+    background-color: hsl(var(--brand-blue));
+  }
+  
+  .bg-brand-teal {
+    background-color: hsl(var(--brand-teal));
+  }
+  
+  .bg-navbar-primary {
+    background-color: hsl(var(--navbar-primary));
+  }
+  
+  .bg-navbar-light {
+    background-color: hsl(var(--navbar-light));
+  }
+  
+  .bg-navbar-dark {
+    background-color: hsl(var(--navbar-dark));
+  }
+
+  /* RALY Logo "Printed" Effect Styles - Enhanced with Prominence */
+  .raly-logo-navbar {
+    object-fit: contain;
+    object-position: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .raly-logo-navbar:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter: brightness(1.25) contrast(1.25) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  }
+
+  .logo-printed-transparent {
+    filter: var(--logo-filter-transparent);
+    mix-blend-mode: screen;
+  }
+
+  .logo-printed-light {
+    filter: var(--logo-filter-light);
+    mix-blend-mode: multiply;
+  }
+
+  .logo-printed-dark {
+    filter: var(--logo-filter-dark);
+    mix-blend-mode: screen;
+  }
+
+  .raly-logo-footer {
+    object-fit: contain;
+    object-position: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .raly-logo-footer:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter: brightness(1.2) contrast(1.2) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+  }
+
+  .logo-printed-footer {
+    filter: var(--logo-filter-footer);
+    mix-blend-mode: multiply;
+  }
+
+  .dark .logo-printed-footer {
+    filter: var(--logo-filter-footer-dark);
+    mix-blend-mode: screen;
+  }
+  
+  /* Enhanced Service Cards - Dark Mode Fix */
+  .service-card-enhanced {
+    background: hsl(var(--card));
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid hsl(var(--border) / 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .service-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--brand-teal)), hsl(var(--secondary)));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card-enhanced:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .service-card-enhanced:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: hsl(var(--brand-teal) / 0.2);
+  }
+  
+  .service-card-enhanced:hover .service-icon {
+    transform: scale(1.1);
+    color: hsl(var(--brand-teal));
+  }
+  
+  .service-card-enhanced:hover .service-title {
+    color: hsl(var(--brand-teal));
+  }
+  
+  .service-icon {
+    transition: all 0.3s ease;
+    color: hsl(var(--color-text-primary));
+  }
+  
+  .service-title {
+    transition: all 0.3s ease;
+    color: hsl(var(--color-text-primary));
+  }
+  
+  /* Floating image effect */
+  .floating-image {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px -10px rgba(26, 42, 68, 0.3);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: all 0.3s ease;
+  }
+  
+  .floating-image:hover {
+    transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) translateY(-5px);
+    box-shadow: 0 30px 60px -10px rgba(26, 42, 68, 0.4);
+  }
+}
