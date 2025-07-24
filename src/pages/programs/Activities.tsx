@@ -8,75 +8,23 @@ import { useEffect, useState } from 'react';
 const Activities = () => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const graduates = [{
-    name: "Database Administration Specialist",
-    specialization: "Database Administration",
+    name: "أحمد محمد الخبير",
+    specialization: "Oracle Database Administration",
     year: "2024",
-    achievement: "Successfully completed comprehensive database management program and secured senior position in technology sector",
-    image: "/lovable-uploads/d54677ca-07ec-49a6-91db-2fd70c024de9.png",
-    type: "success-story"
+    achievement: "متخصص في إدارة قواعد البيانات أوراكل، تمكن من الحصول على منصب مدير تقني في شركة رائدة في التكنولوجيا بعد إتمام البرنامج التدريبي بنجاح",
+    image: "/lovable-uploads/ab39cbaf-27d1-46cd-bfa9-a6a5a1673296.png"
   }, {
-    name: "IT Infrastructure Expert",
-    specialization: "System Administration",
+    name: "مجموعة خريجي 2024",
+    specialization: "تقنية المعلومات المتقدمة",
     year: "2024",
-    achievement: "Graduated with excellence in IT infrastructure management and currently leading technical operations",
-    image: "/lovable-uploads/ac2ecfff-e3e4-4c9b-b151-39eefffb6b87.png",
-    type: "success-story"
+    achievement: "مجموعة متميزة من الخريجين الذين أكملوا برامج تدريبية متطورة في مختلف تخصصات تقنية المعلومات وحققوا نجاحاً مهنياً استثنائياً",
+    image: "/lovable-uploads/295f61a0-be5a-46ba-8354-8e2bca6991b9.png"
   }, {
-    name: "Systems Development Professional",
-    specialization: "Software Development",
-    year: "2024",
-    achievement: "Completed advanced programming certification and now contributing to innovative software solutions",
-    image: "/lovable-uploads/e7abfede-a281-4f33-a5f6-7ed746efcdfa.png",
-    type: "success-story"
-  }, {
-    name: "Cybersecurity Analyst",
-    specialization: "Cybersecurity",
-    year: "2024",
-    achievement: "Security expert specializing in threat analysis and protection systems implementation",
-    video: "/lovable-uploads/155a6270-d99d-42d3-8bd5-c52168874a39.png",
-    type: "video-testimonial"
-  }, {
-    name: "Cloud Computing Specialist",
-    specialization: "Cloud Computing",
-    year: "2023",
-    achievement: "Cloud architecture professional working on enterprise-level cloud solutions and migrations",
-    image: "/lovable-uploads/51cc1635-443b-40c0-a48b-1aac60d50cf2.png",
-    type: "success-story"
-  }, {
-    name: "Web Development Expert",
-    specialization: "Web Development",
-    year: "2023",
-    achievement: "Full-stack developer creating innovative web applications and digital solutions",
-    video: "/lovable-uploads/545ff129-4ec1-4c44-9a2f-628e3c015719.png",
-    type: "program-intro"
-  }, {
-    name: "Network Administration Professional",
-    specialization: "Network Administration",
-    year: "2023",
-    achievement: "Network infrastructure specialist managing complex enterprise networking solutions",
-    image: "/lovable-uploads/8132ebd7-af03-45d0-9134-81727eed1e1a.png",
-    type: "classroom-footage"
-  }, {
-    name: "IT Support Manager",
-    specialization: "IT Support",
-    year: "2023",
-    achievement: "Technical support leader providing comprehensive IT solutions and team management",
-    video: "/lovable-uploads/999b04d1-24c3-4842-8d68-6217a3fcfd24.png",
-    type: "employer-testimonial"
-  }, {
-    name: "Technical Training Graduate",
-    specialization: "Multiple Certifications",
-    year: "2024",
-    achievement: "Outstanding graduate with multiple technical certifications and industry recognition",
-    image: "/lovable-uploads/05227d3e-2896-4629-85f5-838f9f978e9f.png",
-    type: "group-graduation"
-  }, {
-    name: "Professional Development Session",
-    specialization: "Continuous Learning",
-    year: "2024",
-    achievement: "Active participation in professional development programs and industry networking events",
-    image: "/lovable-uploads/7aa28c7a-5faf-4ef5-b8b9-b009633b59fb.png",
-    type: "training-session"
+    name: "كريم أحمد المطور",
+    specialization: "تطوير البرمجيات",
+    year: "2024", 
+    achievement: "مطور برمجيات متخصص في الحلول التقنية المبتكرة، تمكن من بناء مسيرة مهنية ناجحة كمطور full-stack وقائد فريق تقني",
+    image: "/lovable-uploads/237fac22-69d3-4b36-944e-8f9fda51966e.png"
   }];
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const successVideos = [{

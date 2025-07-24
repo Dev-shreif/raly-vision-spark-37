@@ -26,32 +26,43 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
   const handleGraduateSelect = (index: number) => {
     setSelectedGraduate(index);
     setIsPaused(true);
-    setTimeout(() => setIsPaused(false), 3000); // Resume after 3 seconds
+    setTimeout(() => setIsPaused(false), 5000); // Extended pause for better user experience
   };
 
   const currentGraduate = graduates[selectedGraduate];
 
-  // Auto-scroll functionality
+  // Enhanced Auto-scroll functionality with smoother animation
   useEffect(() => {
     const startAutoScroll = () => {
       if (!scrollContainerRef.current || isHovered || isPaused) return;
       
       const container = scrollContainerRef.current;
-      const scrollStep = 0.5; // Slow scroll speed
+      const scrollStep = 0.3; // Slower, smoother scroll speed
+      let animationStartTime = 0;
       
-      const scroll = () => {
+      const smoothScroll = (timestamp: number) => {
+        if (!animationStartTime) animationStartTime = timestamp;
+        
         if (!isHovered && !isPaused && container) {
-          container.scrollLeft += scrollStep;
+          // Apply easing for smoother animation
+          const elapsed = timestamp - animationStartTime;
+          const easedScrollStep = scrollStep * (1 + Math.sin(elapsed * 0.001) * 0.1);
           
-          // Reset scroll when reaching the end
+          container.scrollLeft += easedScrollStep;
+          
+          // Smooth reset when reaching the end
           if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+            container.style.scrollBehavior = 'smooth';
             container.scrollLeft = 0;
+            setTimeout(() => {
+              if (container) container.style.scrollBehavior = 'auto';
+            }, 500);
           }
         }
-        animationRef.current = requestAnimationFrame(scroll);
+        animationRef.current = requestAnimationFrame(smoothScroll);
       };
       
-      animationRef.current = requestAnimationFrame(scroll);
+      animationRef.current = requestAnimationFrame(smoothScroll);
     };
 
     startAutoScroll();
