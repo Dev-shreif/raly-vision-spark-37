@@ -31,25 +31,21 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
 
   const currentGraduate = graduates[selectedGraduate];
 
-  // Auto-scroll functionality with improved smoothness
+  // Auto-scroll functionality
   useEffect(() => {
     const startAutoScroll = () => {
       if (!scrollContainerRef.current || isHovered || isPaused) return;
       
       const container = scrollContainerRef.current;
-      const scrollStep = 0.3; // Slower, smoother scroll speed
+      const scrollStep = 0.5; // Slow scroll speed
       
       const scroll = () => {
         if (!isHovered && !isPaused && container) {
           container.scrollLeft += scrollStep;
           
-          // Reset scroll when reaching the end with smooth transition
+          // Reset scroll when reaching the end
           if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-            setTimeout(() => {
-              if (container && !isHovered && !isPaused) {
-                container.scrollTo({ left: 0, behavior: 'smooth' });
-              }
-            }, 1000);
+            container.scrollLeft = 0;
           }
         }
         animationRef.current = requestAnimationFrame(scroll);
@@ -58,22 +54,14 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
       animationRef.current = requestAnimationFrame(scroll);
     };
 
-    // Auto-select next graduate every 4 seconds
-    const autoSelectInterval = setInterval(() => {
-      if (!isHovered && !isPaused && graduates.length > 0) {
-        setSelectedGraduate(prev => (prev + 1) % graduates.length);
-      }
-    }, 4000);
-
     startAutoScroll();
 
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      clearInterval(autoSelectInterval);
     };
-  }, [isHovered, isPaused, graduates.length]);
+  }, [isHovered, isPaused]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -95,10 +83,7 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
                 key={selectedGraduate} // Force re-render for animation
                 src={currentGraduate.image} 
                 alt={currentGraduate.name}
-                className="w-full h-full object-cover transition-all duration-1000 ease-out transform hover:scale-105"
-                style={{
-                  animation: 'fade-in 0.8s ease-out, scale-in 0.6s ease-out'
-                }}
+                className="w-full h-full object-cover transition-all duration-700 ease-in-out animate-fade-in"
               />
             ) : (
               <div className="w-full h-full bg-gradient-primary flex items-center justify-center animate-fade-in">
@@ -110,13 +95,7 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
           
           {/* Content Side */}
           <div className="p-8 lg:p-12 flex flex-col justify-center bg-card">
-            <div 
-              className="space-y-6" 
-              key={`content-${selectedGraduate}`}
-              style={{
-                animation: 'fade-in 0.6s ease-out 0.2s both, slide-in-right 0.5s ease-out 0.3s both'
-              }}
-            >
+            <div className="space-y-6 animate-fade-in" key={`content-${selectedGraduate}`}>
               <div>
                 <Badge variant="secondary" className="mb-4 text-sm px-4 py-2 transition-all duration-300">
                   {currentGraduate?.specialization}
@@ -162,11 +141,11 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
                 key={index}
                 onClick={() => handleGraduateSelect(index)}
                 className={`
-                  relative cursor-pointer group transition-all duration-700 ease-out rounded-xl overflow-hidden flex-shrink-0
-                  w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40
+                  relative cursor-pointer group transition-all duration-500 rounded-xl overflow-hidden flex-shrink-0
+                  w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36
                   ${selectedGraduate === index 
-                    ? 'ring-4 ring-primary shadow-2xl scale-110 z-10' 
-                    : 'hover:scale-105 hover:shadow-xl hover:z-20 hover:ring-2 hover:ring-primary/50'
+                    ? 'ring-4 ring-primary shadow-xl scale-110 z-10' 
+                    : 'hover:scale-105 hover:shadow-lg hover:z-20'
                   }
                 `}
                 style={{
@@ -178,7 +157,7 @@ const GraduatesCarousel = ({ graduates }: GraduatesCarouselProps) => {
                     <img 
                       src={graduate.image} 
                       alt={graduate.name}
-                      className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
