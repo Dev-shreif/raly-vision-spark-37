@@ -55,13 +55,13 @@ const ModernSections = () => {
     return () => observer.disconnect();
   }, []);
   return <div className="modern-sections">
-      {/* Who We Are Section - Beautiful Gradient Background */}
+      {/* Who We Are Section - Beautiful Purple Gradient Background */}
       <section 
         id="who-we-are" 
         data-scroll-section 
         className="py-20 text-white"
         style={{ 
-          background: 'linear-gradient(180deg, hsl(210, 100%, 16%) 0%, hsl(270, 35%, 20%) 60%, hsl(280, 40%, 15%) 100%)'
+          background: 'linear-gradient(180deg, hsl(270, 50%, 25%) 0%, hsl(280, 45%, 20%) 50%, hsl(290, 40%, 15%) 100%)'
         }}
       >
         <div className="container mx-auto px-4">
