@@ -43,8 +43,8 @@ const Navigation = () => {
   }];
   const isActive = (path: string) => location.pathname === path;
   return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'navbar-solid' : 'navbar-transparent'}`}>
-      <div className="container mx-auto px-[10px] py-0 rounded-full bg-navbar-primary">
-        <div className="flex items-center justify-between h-16 rounded-none">
+      <div className="container mx-auto px-[10px] py-0">
+        <div className="flex items-center justify-between h-14">
           {/* Enhanced Logo - Integrated with "Printed" Effect */}
           <Link to="/" className="flex items-center gap-4 group cursor-pointer transition-all duration-300 px-0 mx-0 my-0 py-0">
             <div className="relative">

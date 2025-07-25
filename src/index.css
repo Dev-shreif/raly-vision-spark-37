@@ -41,10 +41,10 @@ All colors MUST be HSL.
     --brand-blue: 210 100% 16%; /* #1A2A44 exact */
     --brand-teal: 180 100% 31%; /* #00A99D exact */
     
-    /* Navbar Background Colors */
-    --navbar-primary: 188 100% 27%; /* #007B8C - Main teal blue */
-    --navbar-light: 187 100% 30%; /* #008C9E - Lighter variant */
-    --navbar-dark: 189 100% 24%; /* #006A7A - Darker variant */
+    /* Navbar Background Colors - محسنة لوضوح اللوجو */
+    --navbar-primary: 210 60% 25%; /* لون أزرق رمادي للوضوح */
+    --navbar-light: 210 50% 30%; /* متدرج أفتح */
+    --navbar-dark: 210 70% 20%; /* متدرج أغمق للوضع الليلي */
     
     /* Modern Section Backgrounds */
     --section-clean: 0 0% 100%; /* Pure white */
@@ -83,47 +83,47 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* الوضع الليلي المحسن (Enhanced Dark Mode) */
-    --color-background: 210 100% 6%;
-    --color-surface: 210 100% 12%;
-    --color-text-primary: 220 13% 95%;
-    --color-text-secondary: 220 13% 75%;
-    --color-brand-primary: 220 13% 95%;
-    --color-brand-accent: 180 100% 40%;
+    /* الوضع الليلي المحسن - ألوان أفتح للوضوح */
+    --color-background: 210 40% 12%;
+    --color-surface: 210 35% 18%;
+    --color-text-primary: 210 20% 92%;
+    --color-text-secondary: 210 15% 80%;
+    --color-brand-primary: 210 20% 92%;
+    --color-brand-accent: 180 80% 50%;
     
-    --background: 210 100% 6%;
-    --foreground: 220 13% 95%;
+    --background: 210 40% 12%;
+    --foreground: 210 20% 92%;
 
-    --card: 210 100% 12%;
-    --card-foreground: 220 13% 95%;
+    --card: 210 35% 18%;
+    --card-foreground: 210 20% 92%;
 
-    --popover: 210 100% 12%;
-    --popover-foreground: 220 13% 95%;
+    --popover: 210 35% 18%;
+    --popover-foreground: 210 20% 92%;
 
-    --primary: 220 13% 95%;
-    --primary-foreground: 210 100% 12%;
+    --primary: 210 20% 92%;
+    --primary-foreground: 210 40% 12%;
 
-    --secondary: 180 100% 40%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 180 80% 50%;
+    --secondary-foreground: 210 40% 12%;
 
-    --muted: 210 100% 12%;
-    --muted-foreground: 220 13% 75%;
+    --muted: 210 35% 18%;
+    --muted-foreground: 210 15% 80%;
 
-    --accent: 180 100% 40%;
-    --accent-foreground: 220 13% 95%;
+    --accent: 180 80% 50%;
+    --accent-foreground: 210 40% 12%;
     
-    /* Enhanced night mode gradients */
-    --gradient-night-hero: linear-gradient(135deg, hsl(210, 100%, 8%) 0%, hsl(210, 100%, 15%) 100%);
-    --gradient-night-section: linear-gradient(180deg, hsl(210, 100%, 6%) 0%, hsl(210, 100%, 10%) 100%);
+    /* Enhanced night mode gradients - ألوان أفتح */
+    --gradient-night-hero: linear-gradient(135deg, hsl(210, 40%, 12%) 0%, hsl(210, 35%, 20%) 100%);
+    --gradient-night-section: linear-gradient(180deg, hsl(210, 40%, 12%) 0%, hsl(210, 35%, 16%) 100%);
     
-    /* Glow effects for dark mode */
-    --glow-primary: 0 0 20px hsl(180, 100%, 40%);
-    --glow-secondary: 0 0 30px hsl(210, 100%, 60%);
-    --shadow-3d-dark: 0 20px 40px rgba(0, 169, 157, 0.2);
+    /* Glow effects for dark mode - محسنة */
+    --glow-primary: 0 0 20px hsl(180, 80%, 50%);
+    --glow-secondary: 0 0 30px hsl(210, 60%, 70%);
+    --shadow-3d-dark: 0 20px 40px rgba(0, 169, 157, 0.3);
     
     /* Night mode specific card enhancements */
-    --card-glow: 210 100% 15%;
-    --card-border-glow: 180 100% 40%;
+    --card-glow: 210 35% 20%;
+    --card-border-glow: 180 80% 50%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -344,8 +344,8 @@ All colors MUST be HSL.
 
   .dark .navbar-solid {
     background: hsl(var(--navbar-dark));
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
   }
 
   /* Navbar link colors - Absolute Contrast */

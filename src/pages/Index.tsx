@@ -5,15 +5,17 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AnimatedHero from '@/components/AnimatedHero';
 import ModernSections from '@/components/ModernSections';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const { t } = useLanguage();
 
   const whyRaly = [
-    { icon: <Target className="w-6 h-6" />, title: "Trusted Managed Services", description: "Reliable 24/7 support" },
-    { icon: <TrendingUp className="w-6 h-6" />, title: "Real Business Impact", description: "Measurable results" },
-    { icon: <Settings className="w-6 h-6" />, title: "Custom-Built Solutions", description: "Tailored to your needs" },
-    { icon: <Users className="w-6 h-6" />, title: "Long-term Partnerships", description: "Growing together" }
+    { icon: <Target className="w-6 h-6" />, title: t('trustedServices'), description: t('trustedServicesDesc') },
+    { icon: <TrendingUp className="w-6 h-6" />, title: t('businessImpact'), description: t('businessImpactDesc') },
+    { icon: <Settings className="w-6 h-6" />, title: t('customSolutions'), description: t('customSolutionsDesc') },
+    { icon: <Users className="w-6 h-6" />, title: t('partnerships'), description: t('partnershipsDesc') }
   ];
 
   useEffect(() => {
@@ -53,7 +55,7 @@ const Index = () => {
               visibleSections.has('why-raly') ? 'scroll-slide-left visible' : 'scroll-slide-left'
             }`}>
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">
-                Why Choose RALY
+                {t('whyChooseRaly')}
               </h2>
               <div className="space-y-6">
                 {whyRaly.map((item, index) => (
@@ -83,15 +85,15 @@ const Index = () => {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                   <div className="space-y-6">
                     <div className="text-center mb-6">
-                      <h4 className="text-2xl font-bold text-white mb-2">Business Impact</h4>
-                      <p className="text-white/70">Measurable Results</p>
+                      <h4 className="text-2xl font-bold text-white mb-2">{t('businessImpact')}</h4>
+                      <p className="text-white/70">{t('businessImpactDesc')}</p>
                     </div>
                     
                     {/* Animated Progress Bars */}
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
-                          <span className="text-white/90">Efficiency Boost</span>
+                          <span className="text-white/90">{t('efficiencyBoost')}</span>
                           <span className="text-brand-teal">85%</span>
                         </div>
                         <div className="h-2 bg-white/20 rounded-full overflow-hidden">
@@ -101,7 +103,7 @@ const Index = () => {
                       
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
-                          <span className="text-white/90">Cost Reduction</span>
+                          <span className="text-white/90">{t('costReduction')}</span>
                           <span className="text-brand-teal">70%</span>
                         </div>
                         <div className="h-2 bg-white/20 rounded-full overflow-hidden">
@@ -111,7 +113,7 @@ const Index = () => {
                       
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
-                          <span className="text-white/90">Client Satisfaction</span>
+                          <span className="text-white/90">{t('clientSatisfaction')}</span>
                           <span className="text-brand-teal">95%</span>
                         </div>
                         <div className="h-2 bg-white/20 rounded-full overflow-hidden">
@@ -134,12 +136,12 @@ const Index = () => {
             <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${
               visibleSections.has('clients') ? 'scroll-fade-in visible' : 'scroll-fade-in'
             }`}>
-              Trusted by Leaders in Every Sector
+              {t('trustedByLeaders')}
             </h2>
             <p className={`text-xl mb-12 max-w-2xl mx-auto text-white/90 ${
               visibleSections.has('clients') ? 'scroll-fade-in visible' : 'scroll-fade-in'
             }`} style={{ transitionDelay: '0.2s' }}>
-              Join hundreds of successful companies that trust RALY for their IT needs
+              {t('joinSuccessfulCompanies')}
             </p>
             <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto ${
               visibleSections.has('clients') ? 'scroll-fade-in visible' : 'scroll-fade-in'
@@ -148,7 +150,7 @@ const Index = () => {
                 <div key={index} className="text-center">
                   <div className="text-4xl md:text-5xl font-bold mb-2">{stat}</div>
                   <div className="text-white/80 text-sm">
-                    {["Years Experience", "Projects Completed", "Students Trained", "Enterprise Clients"][index]}
+                    {[t('yearsExperience'), t('projectsCompleted'), t('studentsTrained'), t('enterpriseClients')][index]}
                   </div>
                 </div>
               ))}
@@ -163,17 +165,17 @@ const Index = () => {
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gradient ${
             visibleSections.has('contact') ? 'scroll-fade-in visible' : 'scroll-fade-in'
           }`}>
-            Let's Build Your Solution Together
+            {t('buildSolutionTogether')}
           </h2>
           <p className={`text-xl mb-8 max-w-2xl mx-auto text-muted-foreground ${
             visibleSections.has('contact') ? 'scroll-fade-in visible' : 'scroll-fade-in'
           }`} style={{ transitionDelay: '0.2s' }}>
-            Ready to transform your business with cutting-edge IT solutions?
+            {t('transformBusiness')}
           </p>
           <Button size="lg" className={`hover-lift text-lg px-8 py-4 ${
             visibleSections.has('contact') ? 'scroll-fade-in visible' : 'scroll-fade-in'
           }`} style={{ transitionDelay: '0.4s' }}>
-            Book a Free Consultation
+            {t('bookConsultation')}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

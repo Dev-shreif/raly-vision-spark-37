@@ -104,6 +104,29 @@ const translations = {
     // Not Found
     pageNotFound: 'Page Not Found',
     pageNotFoundDescription: 'The page you are looking for does not exist.',
+    
+    // Homepage Specific
+    whyChooseRaly: 'Why Choose RALY',
+    trustedServices: 'Trusted Managed Services',
+    trustedServicesDesc: 'Reliable 24/7 support',
+    businessImpact: 'Real Business Impact',
+    businessImpactDesc: 'Measurable results',
+    customSolutions: 'Custom-Built Solutions', 
+    customSolutionsDesc: 'Tailored to your needs',
+    partnerships: 'Long-term Partnerships',
+    partnershipsDesc: 'Growing together',
+    efficiencyBoost: 'Efficiency Boost',
+    costReduction: 'Cost Reduction',
+    clientSatisfaction: 'Client Satisfaction',
+    trustedByLeaders: 'Trusted by Leaders in Every Sector',
+    joinSuccessfulCompanies: 'Join hundreds of successful companies that trust RALY for their IT needs',
+    yearsExperience: 'Years Experience',
+    projectsCompleted: 'Projects Completed',
+    studentsTrained: 'Students Trained',
+    enterpriseClients: 'Enterprise Clients',
+    buildSolutionTogether: "Let's Build Your Solution Together",
+    transformBusiness: 'Ready to transform your business with cutting-edge IT solutions?',
+    bookConsultation: 'Book a Free Consultation',
   },
   ar: {
     // Navigation
@@ -200,6 +223,29 @@ const translations = {
     // Not Found
     pageNotFound: 'الصفحة غير موجودة',
     pageNotFoundDescription: 'الصفحة التي تبحث عنها غير موجودة.',
+    
+    // Homepage Specific
+    whyChooseRaly: 'لماذا تختار RALY',
+    trustedServices: 'خدمات إدارة موثوقة',
+    trustedServicesDesc: 'دعم موثوق على مدار الساعة',
+    businessImpact: 'تأثير حقيقي على الأعمال',
+    businessImpactDesc: 'نتائج قابلة للقياس',
+    customSolutions: 'حلول مخصصة',
+    customSolutionsDesc: 'مصممة خصيصاً لاحتياجاتك',
+    partnerships: 'شراكات طويلة المدى',
+    partnershipsDesc: 'نمو مشترك',
+    efficiencyBoost: 'تعزيز الكفاءة',
+    costReduction: 'تقليل التكاليف',
+    clientSatisfaction: 'رضا العملاء',
+    trustedByLeaders: 'موثوق من قبل القادة في كل القطاعات',
+    joinSuccessfulCompanies: 'انضم إلى مئات الشركات الناجحة التي تثق في RALY لاحتياجاتها التقنية',
+    yearsExperience: 'سنوات من الخبرة',
+    projectsCompleted: 'مشاريع مكتملة',
+    studentsTrained: 'طلاب مدربون',
+    enterpriseClients: 'عملاء مؤسسيون',
+    buildSolutionTogether: 'دعنا نبني حلولك معاً',
+    transformBusiness: 'هل أنت مستعد لتحويل أعمالك بحلول تقنية متطورة؟',
+    bookConsultation: 'احجز استشارة مجانية',
   }
 };
 
