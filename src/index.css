@@ -41,10 +41,10 @@ All colors MUST be HSL.
     --brand-blue: 210 100% 16%; /* #1A2A44 exact */
     --brand-teal: 180 100% 31%; /* #00A99D exact */
     
-    /* Navbar Background Colors - محسنة لوضوح اللوجو الأقصى */
-    --navbar-primary: 210 50% 35%; /* لون أفتح لتباين أفضل مع اللوجو */
-    --navbar-light: 210 45% 40%; /* متدرج أفتح للوضع العادي */
-    --navbar-dark: 210 60% 15%; /* متدرج أغمق للوضع الليلي مع تباين ممتاز */
+    /* Navbar Background Colors - محسنة لوضوح اللوجو */
+    --navbar-primary: 210 60% 25%; /* لون أزرق رمادي للوضوح */
+    --navbar-light: 210 50% 30%; /* متدرج أفتح */
+    --navbar-dark: 210 70% 20%; /* متدرج أغمق للوضع الليلي */
     
     /* Modern Section Backgrounds */
     --section-clean: 0 0% 100%; /* Pure white */
@@ -177,11 +177,11 @@ All colors MUST be HSL.
     color: rgba(255, 255, 255, 0.7) !important;
   }
 
-  /* Enhanced Logo "printed" effect filters with maximum prominence and clarity */
+  /* Enhanced Logo "printed" effect filters with prominence */
   :root {
-    --logo-filter-transparent: brightness(1.3) contrast(1.4) saturate(1.1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
-    --logo-filter-light: brightness(1.1) contrast(1.3) saturate(1.0) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
-    --logo-filter-dark: brightness(1.4) contrast(1.3) saturate(1.15) drop-shadow(0 3px 10px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+    --logo-filter-transparent: brightness(1.2) contrast(1.2) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+    --logo-filter-light: brightness(0.9) contrast(1.2) saturate(0.95) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+    --logo-filter-dark: brightness(1.25) contrast(1.15) saturate(1.1) drop-shadow(0 2px 6px rgba(255, 255, 255, 0.2));
     --logo-filter-footer: brightness(1.05) contrast(1.15) saturate(1.0) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.25));
     --logo-filter-footer-dark: brightness(1.15) contrast(1.1) saturate(1.05) drop-shadow(0 3px 8px rgba(255, 255, 255, 0.15));
   }
@@ -327,25 +327,25 @@ All colors MUST be HSL.
     display: none;  /* Safari and Chrome */
   }
 
-  /* Floating Navbar Effects - Ultimate Logo Clarity */
+  /* Floating Navbar Effects - Critical Contrast Fix */
   .navbar-transparent {
-    background: hsla(var(--navbar-primary), 0.12);
-    backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: hsla(var(--navbar-primary), 0.15);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .navbar-solid {
-    background: hsl(var(--navbar-light));
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 6px 25px -3px rgba(0, 0, 0, 0.15);
+    background: hsl(var(--navbar-primary));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
   }
 
   .dark .navbar-solid {
     background: hsl(var(--navbar-dark));
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 25px -3px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
   }
 
   /* Navbar link colors - Absolute Contrast */
@@ -614,49 +614,31 @@ All colors MUST be HSL.
     background-color: hsl(var(--navbar-dark));
   }
 
-  /* RALY Logo "Printed" Effect Styles - Ultimate Clarity & Prominence */
+  /* RALY Logo "Printed" Effect Styles - Enhanced with Prominence */
   .raly-logo-navbar {
     object-fit: contain;
     object-position: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Enhanced positioning for absolute clarity */
-    position: relative;
-    z-index: 10;
   }
 
   .raly-logo-navbar:hover {
-    transform: translateY(-3px) scale(1.08);
-    filter: brightness(1.3) contrast(1.3) saturate(1.1) drop-shadow(0 6px 15px rgba(0, 0, 0, 0.5));
+    transform: translateY(-3px) scale(1.05);
+    filter: brightness(1.25) contrast(1.25) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
   }
 
-  /* Ultimate Logo Clarity Classes */
   .logo-printed-transparent {
     filter: var(--logo-filter-transparent);
-    mix-blend-mode: normal; /* Changed from screen for better clarity */
-    position: relative;
-    z-index: 15;
+    mix-blend-mode: screen;
   }
 
   .logo-printed-light {
     filter: var(--logo-filter-light);
-    mix-blend-mode: normal; /* Changed from multiply for better clarity */
-    position: relative;
-    z-index: 15;
+    mix-blend-mode: multiply;
   }
 
   .logo-printed-dark {
     filter: var(--logo-filter-dark);
-    mix-blend-mode: normal; /* Changed from screen for better clarity */
-    position: relative;
-    z-index: 15;
-  }
-
-  /* Additional logo clarity enhancement for dark backgrounds */
-  .dark .logo-printed-transparent,
-  .dark .logo-printed-light,
-  .dark .logo-printed-dark {
-    filter: var(--logo-filter-dark);
-    backdrop-filter: blur(1px);
+    mix-blend-mode: screen;
   }
 
   .raly-logo-footer {
